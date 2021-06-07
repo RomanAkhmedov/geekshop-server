@@ -1,11 +1,13 @@
-import json
-import os
+# import json
+# import os
+# from geekshop.settings import JSON_DIR
 from django.shortcuts import render
-from geekshop.settings import JSON_DIR
+from products.models import ProductCategory, Product
+
 
 # Json-file unpacking.
-with open(os.path.join(JSON_DIR, 'products.json')) as file:
-    products_information = json.load(file)
+# with open(os.path.join(JSON_DIR, 'products.json')) as file:
+#    products_information = json.load(file)
 
 
 # Create your views here.
@@ -17,5 +19,9 @@ def index(request):
 
 
 def products(request):
-    context = products_information
+    context = {
+        'title': 'GeekShop - Каталог',
+        'products': Product.objects.all(),
+        'categories': ProductCategory.objects.all(),
+    }
     return render(request, 'products/products.html', context)
