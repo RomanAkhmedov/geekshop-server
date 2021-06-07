@@ -3,32 +3,40 @@
     "model": "products.productcategory",
     "pk": 1,
     "fields": {
-      "name": "������",
-      "description": "�������� ��� ������ ������"
+      "name": "Новинки",
+      "description": "Описание для категории новинок"
     }
   },
   {
     "model": "products.productcategory",
     "pk": 2,
     "fields": {
-      "name": "�������",
-      "description": "�������� ��� ������ �����"
+      "name": "Одежда",
+      "description": "Описание для категории одежды"
     }
   },
   {
     "model": "products.productcategory",
     "pk": 3,
     "fields": {
-      "name": "�����",
-      "description": "�������� ��� ������ �����"
+      "name": "Обувь",
+      "description": "Описание для категории обуви"
     }
   },
   {
     "model": "products.productcategory",
     "pk": 4,
     "fields": {
-      "name": "����������",
-      "description": "�������� ��� ������ �����������"
+      "name": "Аксессуары",
+      "description": "Описание для категории аксессуаров"
+    }
+  },
+  {
+    "model": "products.productcategory",
+    "pk": 5,
+    "fields": {
+      "name": "Подарки",
+      "description": "Описание для категории подарков"
     }
   }
 ]
