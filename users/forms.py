@@ -1,6 +1,8 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.core.exceptions import ValidationError
 from django import forms
 from users.models import User
+from re import match
 
 
 class UserLoginForm(AuthenticationForm):
@@ -20,7 +22,7 @@ class UserRegisterForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control py-4', 'placeholder': 'Введите имя пользователя'
     }))
-    e_mail = forms.CharField(widget=forms.EmailInput(attrs={
+    email = forms.CharField(widget=forms.EmailInput(attrs={
         'class': 'form-control py-4', 'placeholder': 'Введите адрес эл. почты'
     }))
     first_name = forms.CharField(widget=forms.TextInput(attrs={
@@ -38,4 +40,10 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'e_mail', 'first_name', 'last_name', 'password1', 'password2')
+        fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if match(r'\d', username):
+            raise ValidationError('Логин не должен начинаться с цифры')
+        return username
