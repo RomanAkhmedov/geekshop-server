@@ -59,3 +59,15 @@ class UserProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'first_name', 'last_name', 'image')
+
+    def clean_first_name(self):
+        first_name = self.cleaned_data['first_name']
+        if any(map(str.isdigit, first_name)):
+            raise ValidationError('В имени пользователя не должны присутствовать цифры')
+        return first_name
+
+    def clean_last_name(self):
+        last_name = self.cleaned_data['last_name']
+        if any(map(str.isdigit, last_name)):
+            raise ValidationError('В фамилии пользователя не должны присутствовать цифры')
+        return last_name
