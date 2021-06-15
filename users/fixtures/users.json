@@ -1,0 +1,97 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$dOfc7KLgPDzMV5vZlx4XMj$xJCznomiZrOV0l/Loch5pUvedm198nNwNETvjmJwdLA=",
+      "last_login": "2021-06-10T18:16:55Z",
+      "is_superuser": true,
+      "username": "rakh",
+      "first_name": "Роман",
+      "last_name": "Ахмедов",
+      "email": "7171@yandex.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2021-06-07T17:58:34Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$zZSNMfC6aUCFg5QBoWeqlb$GDvEdObUTqLgOzVLIg5pZi0XacmQkOr48VgTTlOaa14=",
+      "last_login": "2021-06-07T19:38:33Z",
+      "is_superuser": false,
+      "username": "Бумчик",
+      "first_name": "Андрей",
+      "last_name": "Иванов",
+      "email": "restinpeace@google.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-07T19:38:13Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$KOjBlVoQYgVOsgCIGlLuMS$+IpvgGPL5YgGjuEtV3gV3Ci+g85zbe1cTViqjriXuZY=",
+      "last_login": "2021-06-08T18:22:18.071Z",
+      "is_superuser": false,
+      "username": "Antony",
+      "first_name": "Антон",
+      "last_name": "Антонов",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-08T18:22:04.446Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$r1Uyb7yUuSU1nYuUXj01V8$2IRtTXXQ4fweQMMdYDykIrwO8if8NA3VuS0D6XjlPKI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Ванзес",
+      "first_name": "Иван",
+      "last_name": "Иванов",
+      "email": "111@yandex.ru",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-08T18:25:24.180Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$p8NVGfNAqEORfknElvSM08$W4R6Rpxku4dh4o1Wp7oA3Yv29yQUvgcVgCog4ROmf7k=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Биртман",
+      "first_name": "Аутист",
+      "last_name": "Аустистов",
+      "email": "123@yandex.ru",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-10T17:43:06.881Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
