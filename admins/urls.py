@@ -1,5 +1,6 @@
 from django.urls import path
-from admins.views import index, admin_users, admin_users_update, admin_users_create, admin_users_delete
+from admins.views import index, admin_users, admin_users_update, admin_users_create, admin_users_delete, \
+    admin_users_recover
 
 app_name = 'admins'
 
@@ -9,4 +10,5 @@ urlpatterns = [
     path('users/create/', admin_users_create, name='admin_users_create'),
     path('users/update/<int:id>/', admin_users_update, name='admin_users_update'),
     path('users/delete/<int:id>/', admin_users_delete, name='admin_users_delete'),
+    path('users/recover/<int:id>/', admin_users_recover, name='admin_users_recover'),
 ]
