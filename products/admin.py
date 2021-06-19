@@ -3,7 +3,12 @@ from django.contrib import admin
 # Register your models here.
 from products.models import ProductCategory, Product
 
-admin.site.register(ProductCategory)
+
+@admin.register(ProductCategory)
+class ProductCategoryAdmin(admin.ModelAdmin):
+    readonly_fields = ('name',)
+    ordering = ('name',)
+    search_fields = ('name',)
 
 
 @admin.register(Product)
