@@ -2,8 +2,11 @@
 # import os
 # from geekshop.settings import JSON_DIR
 from django.shortcuts import render
-from products.models import ProductCategory, Product
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic.base import TemplateView
+
+from common.views import CommonContextMixin
+from products.models import ProductCategory, Product
 
 
 # Json-file unpacking.
@@ -11,12 +14,16 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 #    products_information = json.load(file)
 
 
-# Create your views here.
-def index(request):
-    context = {
-        'title': 'GeekShop'
-    }
-    return render(request, 'products/index.html', context)
+class IndexView(CommonContextMixin, TemplateView):
+    template_name = 'products/index.html'
+    title = 'GeekShop'
+
+
+# def index(request):
+#     context = {
+#         'title': 'GeekShop'
+#     }
+#     return render(request, 'products/index.html', context)
 
 
 def products(request, category_id=None, page=1):
