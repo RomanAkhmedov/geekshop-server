@@ -135,6 +135,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
 LOGIN_URL = '/users/login/'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
 
+DOMAIN_NAME = 'http://localhost:8000'
+
+EMAIL_HOST = 'smtp-pulse.com'
+EMAIL_PORT = '2525'
+EMAIL_HOST_USER = 'rakhmedov18@gmail.com'
+EMAIL_HOST_PASSWORD = 'LgNtaHbnpPKpRTg'
+EMAIL_USE_SSL = False
+EMAIL_USE_TLS = False

@@ -1,3 +1,6 @@
+import hashlib
+import random
+
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.core.exceptions import ValidationError
 from django import forms
@@ -18,7 +21,7 @@ class UserLoginForm(AuthenticationForm):
         fields = ('username', 'password')
 
 
-class UserRegistrationForm(UserCreationForm):
+class UserRegisterForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control py-4', 'placeholder': 'Введите имя пользователя'
     }))
@@ -47,6 +50,15 @@ class UserRegistrationForm(UserCreationForm):
         if match(r'\d', username):
             raise ValidationError('Логин не должен начинаться с цифры')
         return username
+
+    def save(self, *args, **kwargs):
+        user = super(UserRegisterForm, self).save()
+
+        user.is_active = False
+        salt = hashlib.sha1(str(random.random()).encode('utf-8')).hexdigest()[:6]
+        user.activation_key = hashlib.sha1((user.email + salt).encode('utf-8')).hexdigest()
+        user.save()
+        return user
 
 
 class UserProfileForm(UserChangeForm):
