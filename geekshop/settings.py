@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'users.context_processors.basket',
             ],
         },
     },
@@ -138,9 +139,8 @@ LOGIN_URL = '/users/login/'
 
 DOMAIN_NAME = 'http://localhost:8000'
 
-EMAIL_HOST = 'smtp-pulse.com'
-EMAIL_PORT = '2525'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '465'
 EMAIL_HOST_USER = 'rakhmedov18@gmail.com'
-EMAIL_HOST_PASSWORD = 'LgNtaHbnpPKpRTg'
-EMAIL_USE_SSL = False
-EMAIL_USE_TLS = False
+EMAIL_HOST_PASSWORD = 'fa8f23bv1'
+EMAIL_USE_SSL = True

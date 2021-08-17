@@ -71,7 +71,7 @@ def send_verify_mail(user):
     verify_link = reverse('users:verify', args=[user.email, user.activation_key])
     title = f'Подтверждение учетной записи {user.username}'
     message = f'Для подтверждения учетной записи {user.username} на сайте {DOMAIN_NAME} пройдите по ссылке {verify_link}'
-    return send_mail(title, message, EMAIL_HOST_USER, user.email, fail_silently=False)
+    return send_mail(title, message, EMAIL_HOST_USER, [user.email], fail_silently=False)
 
 
 def verify(request, email, activation_key):
