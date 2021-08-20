@@ -69,6 +69,11 @@
                             {{ profile_form.age }}
                         </div>
                         <div class="col-lg-6">
+                            <label class="small mb-1" for="{{ profile_form.page_id.if_for_label }}">Адрес страницы
+                                VK</label>
+                            {{ profile_form.page_id }}
+                        </div>
+                        <div class="col-lg-6">
                             <label class="small mb-1" for="{{ profile_form.tagLine.if_for_label }}">Тэги</label>
                             {{ profile_form.tagLine }}
                         </div>

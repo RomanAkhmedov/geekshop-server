@@ -37,7 +37,8 @@ class UserProfile(models.Model):
     tagLine = models.CharField(verbose_name='тэги', max_length=128, blank=True)
     about_me = models.TextField(verbose_name='о себе', max_length=512, blank=True)
     gender = models.CharField(verbose_name='пол', max_length=1, choices=GENDER_CHOICES, blank=True)
-    age = models.IntegerField(verbose_name='возраст', default=18, max_length=3, blank=True)
+    age = models.IntegerField(verbose_name='возраст', default=18, blank=True)
+    page_id = models.CharField(verbose_name='адрес страницы VK', default='', max_length=64, blank=True)
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
