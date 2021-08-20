@@ -56,9 +56,21 @@
                             {{ form.username }}
                         </div>
                         <div class="col-lg-6">
+                            <label class="small mb-1" for="{{ profile_form.gender.if_for_label }}">Пол</label>
+                            {{ profile_form.gender }}
+                        </div>
+                        <div class="col-lg-6">
                             <label class="small mb-1" for="{{ form.email.if_for_label }}">Адрес электронной
                                 почты</label>
                             {{ form.email }}
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="small mb-1" for="{{ profile_form.tagLine.if_for_label }}">Тэги</label>
+                            {{ profile_form.tagLine }}
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="small mb-1" for="{{ profile_form.about_me.if_for_label }}">Обо мне</label>
+                            {{ profile_form.about_me }}
                         </div>
                     </div>
                     <div class="form-row">

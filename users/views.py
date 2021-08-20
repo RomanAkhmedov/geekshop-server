@@ -5,7 +5,7 @@ from django.contrib import auth
 from django.urls import reverse
 from geekshop.settings import DOMAIN_NAME, EMAIL_HOST_USER
 
-from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
+from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm, UserProfileEditForm
 from baskets.models import Basket
 
 
@@ -47,16 +47,19 @@ def register(request):
 def profile(request):
     if request.method == 'POST':
         form = UserProfileForm(data=request.POST, files=request.FILES, instance=request.user)
-        if form.is_valid():
+        profile_form = UserProfileEditForm(data=request.POST, instance=request.user.userprofile)
+        if form.is_valid() and profile_form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:profile'))
         else:
             print(form.errors)
     else:
         form = UserProfileForm(instance=request.user)
+        profile_form = UserProfileEditForm(instance=request.user.userprofile)
     context = {
         'title': 'GeekShop - Личный кабинет',
         'form': form,
+        'profile_form': profile_form,
         'baskets': Basket.objects.filter(user=request.user),
     }
     return render(request, 'users/profile.html', context)
