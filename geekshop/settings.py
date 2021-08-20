@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +44,14 @@ INSTALLED_APPS = [
     'users',
     'baskets',
     'admins',
+
+    'social_django',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.vk.VKOAuth2',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -141,6 +152,10 @@ DOMAIN_NAME = 'http://localhost:8000'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'rakhmedov18@gmail.com'
-EMAIL_HOST_PASSWORD = 'fa8f23bv1'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = env('SOCIAL_AUTH_VK_OAUTH2_KEY')
+SOCIAL_AUTH_VK_OAUTH2_SECRET = env('SOCIAL_AUTH_VK_OAUTH2_SECRET')
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
