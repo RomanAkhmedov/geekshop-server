@@ -65,6 +65,10 @@
                             {{ form.email }}
                         </div>
                         <div class="col-lg-6">
+                            <label class="small mb-1" for="{{ profile_form.age.if_for_label }}">Возраст</label>
+                            {{ profile_form.age }}
+                        </div>
+                        <div class="col-lg-6">
                             <label class="small mb-1" for="{{ profile_form.tagLine.if_for_label }}">Тэги</label>
                             {{ profile_form.tagLine }}
                         </div>
