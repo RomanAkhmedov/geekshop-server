@@ -4,7 +4,7 @@ import random
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.core.exceptions import ValidationError
 from django import forms
-from users.models import User
+from users.models import User, UserProfile
 from re import match
 
 
@@ -83,3 +83,15 @@ class UserProfileForm(UserChangeForm):
         if any(map(str.isdigit, last_name)):
             raise ValidationError('В фамилии пользователя не должны присутствовать цифры')
         return last_name
+
+
+class UserProfileEditForm(forms.ModelForm):
+
+    class Meta:
+        model = UserProfile
+        fields = ('tagLine', 'about_me', 'gender', 'age', 'page_id')
+
+    def __init__(self, *args, **kwargs):
+        super(UserProfileEditForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
