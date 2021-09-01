@@ -1,0 +1,9 @@
+asgiref==3.4.1
+Django==3.2.5
+pytz==2821.1
+sqlparse==0.4.1
+Pillow
+social-auth-app-django
+django-environ
+requests
+psycopg2-binary
